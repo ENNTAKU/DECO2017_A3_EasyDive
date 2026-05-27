@@ -1,11 +1,37 @@
 ---
-title: Post Title
-date: 2026-02-14
-author: Your Name
-summary: Short description
+title: Reflection
+date: 2026-05-28
+author: Xi Lin
+summary: This final reflection evaluates the development of EASY DIVE, focusing on how the prototype responded to the original design goals, what changed during the process, and what I learned from building and testing the web app.
 tags:
-  - tag1
-  - tag2
-  - tag3
+  - Reflection
+  - Evaluation
+  - Design Iteration
 ---
-Write your content here.
+When I first planned EASY DIVE, I wanted it to be a lightweight platform for divers to record and explore useful dive-site information, rather than a general social media website about diving. Looking at the final prototype, I think the application mostly achieved this direction. The final version includes login and logout, a structured Log Dive form, an Explore Sites page, dive shop cards, profile editing, images for default dive sites, and a small social layer where users can click the name of the person who posted a site or log. It is not a production-level platform, but it does communicate the main concept clearly.
+
+In terms of performance, the application works well for its current prototype scale. When running locally, the main pages load quickly and the navigation between Home, Log Dive, Explore Sites, Dive Shops, and Profile feels immediate. This is partly because the interface works as one page with sections that are shown or hidden, instead of loading a completely new page each time. The filtering on Explore Sites also feels fast because the dataset is still small. Users can search by keyword and filter by state, site type, and difficulty without noticeable delay.
+
+However, the final version also made me more aware of potential performance limits. I added more images to make the site feel more complete, especially the hero image and the default dive site images. This improves the visual experience, but it also increases the amount of content loaded by the browser. At the current scale, this is acceptable. If the site had hundreds of dive sites, I would need to optimise images more carefully, add lazy loading, or avoid rendering every card at once. The current approach is suitable for a beginner prototype, but it would not scale well as a larger real-world platform.
+
+The technical behaviour is mostly reliable in the core user flows. Login and logout work with a simple demo user. The Log Dive form saves new records and then updates the displayed logs. The state selector changes the available dive site options, and the custom site field only appears when the user selects “Custom site.” This interaction is important because it makes the form feel more responsive rather than static. The live preview also supports this by showing users what their record will look like while they are filling it in. One weakness is that error feedback is still basic. If I had more time, I would add clearer field-level validation, especially for required fields such as state, dive site, and notes.
+
+For user experience, I think the strongest part of the application is the overall page structure. Each page has a clear purpose. Home introduces the platform. Log Dive is for creating structured records. Explore Sites is for searching and comparing information. Dive Shops provides local support information. Profile gives users a simple diving identity. This matches my planning stage, where I wanted dive logs to be the centre of the platform and the other features to support that main activity.
+
+The Log Dive page is the most important page, but also the most complex. It includes state, dive site, site type, date, current strength, visibility, water temperature, surge, marine life, custom species, feeling tags, notes, and image input. These fields make the records more useful, but they also make the form visually heavy. I tried to reduce this problem by grouping the fields and adding a live preview. In testing, the form is understandable once the user starts interacting with it, but I still think it could be improved with short helper text. For example, beginner divers may not immediately understand the difference between current strength and surge. Adding small explanations would improve clarity without changing the structure.
+
+Explore Sites works well as a browsing and comparison page. The card layout makes information easier to scan than a table or long post list. Each card shows the site name, image, state, site type, difficulty, visibility, current, temperature, species tags, and author information. This gives users enough context to compare sites quickly. The “Posted by” and “Logged by” links also make the platform feel more social. Clicking a username opens a diver profile with contact information, certification, experience level, and interest tags. This is a small feature, but it supports the social purpose of the platform without adding complex systems such as friend requests or private messaging.
+
+The Dive Shops page also supports the user goal well. I kept the region-based buttons because they match how users are likely to search for local diving support. The page now includes multiple shop cards with address, services, nearby sites, and contact details. This makes the page more useful than a simple list. However, it could still be improved. For example, the current version does not include maps, external links, or real shop websites. I chose not to add those because they would increase technical complexity, but they would be useful additions if the project continued.
+
+Accessibility is partly successful but still needs more work. The form fields have labels, buttons are clear, and the colour contrast is mostly readable. The card layout is also responsive, so the pages can collapse into a single-column structure on smaller screens. However, the modal profile card could have better keyboard support. At the moment, clicking a username opens the modal, but a stronger version would allow users to close it with the Escape key and keep keyboard focus inside the modal while it is open. I would also review image alt text more carefully. The current alt text is functional, but some images could describe the site more meaningfully.
+
+When I compare the final prototype with my original functional requirements, most of the core requirements were met. The application supports dive logging, structured condition options, custom sites, marine life selection, personal notes, image placeholders, search and filtering, dive shop browsing, login/logout, profile information, and lightweight user identity. I am glad I kept the original diving-specific options instead of simplifying them too much, because they are what make the logs useful for comparison.
+
+Some features were intentionally rescoped. I did not build real image uploading, secure authentication, messaging, friend systems, or advanced recommendations. These would make sense in a complete product, but they would be too large for this prototype. Instead, I used prepared images, a demo login, SQLite data, and simple profile popups. This kept the project manageable while still showing the intended experience.
+
+The main lesson I learned is that scope control is part of development, not only planning. It was easy to keep adding features because many of them sounded useful for a diving platform. But every new feature changed the data structure, interface, and testing requirements. The project became clearer when I kept dive logging as the centre and treated other pages as support. I also learned that design decisions and technical decisions are connected. Structured dropdowns made filtering easier. User IDs made author profiles possible. Image cards improved the visual experience but also affected loading.
+
+Overall, EASY DIVE became close to the platform I wanted to build. It is not a finished diving product, but it works as a web prototype. It shows how divers can record structured experiences, browse community information, find local shops, and understand who posted each record. The final evaluation helped me see that a successful prototype is not only about whether the pages work, but whether the technical structure, user flow, and original requirements still support the same goal.
+
+I plan to learn more and further optimize this website in the coming days. I want to implement a login system that allows real registration or free account login, along with an administrator account to easily delete meaningless records and update dive shop information. It should also support uploading account avatars, allowing users to select images through the system instead of URLs.
