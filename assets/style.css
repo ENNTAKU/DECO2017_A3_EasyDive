@@ -61,3 +61,59 @@ ul.tags-list {
 ul.post-list{
     list-style: none;
 }
+
+/* ---------- Evidence appendix tables ---------- */
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 2rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+article th,
+article td {
+  border: 1px solid light-dark(#cbd5e1, #3f3f46);
+  padding: 0.65rem 0.75rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+article th {
+  background: light-dark(#e0e7ff, #27272a);
+  font-weight: 700;
+}
+
+article tr:nth-child(even) td {
+  background: light-dark(#f8fafc, #18181b);
+}
+
+article blockquote {
+  margin: 1rem 0 1.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid light-dark(var(--light-accent), var(--dark-accent));
+  background: light-dark(#f8fafc, #1f1f1f);
+  font-style: italic;
+}
+
+article code {
+  padding: 0.15rem 0.3rem;
+  border-radius: 0.25rem;
+  background: light-dark(#e5e7eb, #27272a);
+  font-size: 0.9em;
+}
+
+@media (max-width: 760px) {
+  main {
+    padding: 1.25rem;
+  }
+
+  article {
+    overflow-x: auto;
+  }
+
+  article table {
+    min-width: 640px;
+  }
+}
