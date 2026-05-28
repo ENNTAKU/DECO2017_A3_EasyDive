@@ -44,28 +44,28 @@ If I continued developing EASY DIVE, my would be improving deployment and access
 
 The following evidence supports the reflection above. This appendix is separated from the main reflective writing and is not intended to count towards the 1250-word limit.
 
-## Appendix A: Manual Technical Task Walkthrough
+## Appendix A: Manual Technical Walkthrough
 
-| Task tested                                                             | Result | Evidence / observation                                                                                                        | Used in reflection                                                |
-| ----------------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| Open the app locally through `npm start` and access `localhost:3000`    | Passed | The app could be opened through the local server after installing dependencies.                                               | Used to discuss local performance and setup complexity.           |
-| Log in with the demo account                                            | Passed | The login page accepted the demo username and password and then displayed the main app shell.                                 | Used to discuss prototype-level login and user flow.              |
-| Navigate between Home, Log Dive, Explore Sites, Dive Shops, and Profile | Passed | Navigation switched sections without full page reload.                                                                        | Used to evaluate responsiveness and app-like behaviour.           |
-| Create a new dive log                                                   | Passed | The form accepted location, conditions, marine life, notes, and image link/default image. After saving, the log list updated. | Used to evaluate functional completion and backend/API behaviour. |
-| Use the live preview while filling in the form                          | Passed | The preview changed when fields, checkboxes, notes, or image values changed.                                                  | Used to evaluate immediate feedback and user experience.          |
-| Search and filter dive sites                                            | Passed | Keyword, state, site type, and difficulty filters changed the displayed cards.                                                | Used to evaluate client-side filtering and browsing usability.    |
-| Edit profile information                                                | Passed | Profile fields could be changed and the profile display updated after saving.                                                 | Used to evaluate profile functionality.                           |
+| Area tested          | Result | Key evidence                                                                                                  |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------- |
+| Local setup          | Passed | The app opened successfully through `npm start` and `localhost:3000`.                                         |
+| Demo login           | Passed | The demo account allowed access to the main application shell.                                                |
+| Page navigation      | Passed | The user could move between Home, Log Dive, Explore Sites, Dive Shops, and Profile without full page reloads. |
+| Creating a dive log  | Passed | A new log could be created with site, conditions, marine life, notes, and image/default image data.           |
+| Live preview         | Passed | The preview updated when form fields, checkboxes, notes, or image values changed.                             |
+| Search and filtering | Passed | Keyword, state, site type, and difficulty filters changed the displayed cards.                                |
+| Profile editing      | Passed | Profile information could be edited and saved through the interface.                                          |
 
 ## Appendix B: User Walkthrough
 
-A short walkthrough was conducted with one participant familiar with recreational diving. The participant was asked to complete three core tasks without step-by-step instruction.
+A short walkthrough was conducted with one participant familiar with recreational diving. The participant was asked to complete several core tasks without step-by-step instruction.
 
-| Task                                                | Completion                      | Observation                                                                                                                                                 |
-| --------------------------------------------------- | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Log in using the demo account                       | Completed                       | The participant understood the demo login because the account details were visible on the login page.                                                       |
-| Record and save a new dive log                      | Completed                       | The participant understood the purpose of the fields, especially current, visibility, temperature, and marine life. However, the form looked long at first. |
-| Search for a dive site and view related information | Completed                       | The participant found the card layout easy to scan and understood the filter options after trying them.                                                     |
-| View a diver profile from a card                    | Completed with minor hesitation | The participant did not immediately realise that the author name was clickable.                                                                             |
+| Task                           | Result                          | Observation                                                                                                   |
+| ------------------------------ | ------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| Log in with the demo account   | Completed                       | The participant understood the login process because the demo account details were visible.                   |
+| Record and save a new dive log | Completed                       | The participant understood the purpose of the diving-specific fields, but felt the form looked long at first. |
+| Search for a dive site         | Completed                       | The participant found the card layout easy to scan and understood the filters after trying them.              |
+| View a diver profile           | Completed with minor hesitation | The participant did not immediately realise that the author name was clickable.                               |
 
 Short feedback notes:
 
@@ -77,35 +77,34 @@ Short feedback notes:
 
 ## Appendix C: Accessibility Checklist
 
-| Accessibility area  | Result            | Evidence from prototype                                                                       | Improvement needed                                                                   |
-| ------------------- | ----------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| Visible form labels | Mostly passed     | Login, dive log, and profile inputs have visible labels.                                      | Check every field after future layout changes.                                       |
-| Colour contrast     | Mostly passed     | Dark navy text on light backgrounds and white text on dark blue areas are generally readable. | Run a formal contrast checker for all button and badge combinations.                 |
-| Responsive layout   | Passed            | CSS media queries turn multi-column layouts into single-column layouts on smaller screens.    | Test on more device widths, not only desktop resizing.                               |
-| Keyboard navigation | Partly passed     | Standard buttons and form fields are keyboard reachable.                                      | Add stronger visible focus states.                                                   |
-| Modal accessibility | Needs improvement | The profile modal has ARIA attributes, but does not fully trap focus or close with Escape.    | Add focus trapping, Escape-key close, and return focus to the clicked author button. |
-| Error feedback      | Partly passed     | Login and form errors can be shown as text messages.                                          | Make error messages more specific and ensure screen readers announce them.           |
+| Area checked        | Result            | Evidence / issue                                                                           |
+| ------------------- | ----------------- | ------------------------------------------------------------------------------------------ |
+| Form labels         | Mostly passed     | Login, dive log, and profile fields have visible labels.                                   |
+| Colour contrast     | Mostly passed     | Dark text on light backgrounds and white text on dark blue areas are generally readable.   |
+| Responsive layout   | Passed            | Multi-column layouts become single-column layouts on smaller screens.                      |
+| Keyboard navigation | Partly passed     | Standard buttons and inputs are reachable, but stronger visible focus styles are needed.   |
+| Modal accessibility | Needs improvement | The profile modal has ARIA attributes, but does not fully trap focus or close with Escape. |
+| Error feedback      | Partly passed     | Login and form errors can appear as text, but the messages could be more specific.         |
 
 ## Appendix D: Lighthouse Audit Results
 
 The Lighthouse audit was run on the locally served prototype entry page.
 
-| Lighthouse category |         Score | Key issue / observation                                                                                                                                                | Reflection use                                                                                                         |
-| ------------------- | ------------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| Performance         | Not available | Lighthouse performance trace could not be reliably completed in the local testing environment. Manual task walkthrough was used instead for performance reflection.    | Used to explain why performance was evaluated through local task behaviour rather than a Lighthouse performance score. |
-| Accessibility       |      80 / 100 | The site has a reasonable accessibility base, but some accessibility checks still failed or need manual improvement.                                                   | Used to support the accessibility reflection.                                                                          |
-| Best Practices      |       0 / 100 | The local prototype was served through HTTP rather than HTTPS. This affected the audit result and shows that deployment-level best practices were not fully addressed. | Used to discuss the difference between a working local prototype and a production-ready deployed system.               |
-| SEO                 |       0 / 100 | The page lacks production-level metadata such as a meta description and valid crawlability setup.                                                                      | Used to identify future improvements for public deployment.                                                            |
+| Category       |         Score | Key observation                                                                                                                                                         |
+| -------------- | ------------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Performance    | Not available | The Lighthouse performance trace could not be reliably completed in the local testing environment, so manual walkthrough evidence was used instead.                     |
+| Accessibility  |      80 / 100 | The app has a reasonable accessibility base, but still needs improvement in interactive components and manual accessibility checks.                                     |
+| Best Practices |       0 / 100 | The local prototype was served through HTTP rather than HTTPS, which affected the audit result and shows that deployment-level best practices were not fully addressed. |
+| SEO            |       0 / 100 | The page lacks production-level metadata, such as a meta description, so SEO was not fully addressed.                                                                   |
 
 ## Appendix E: Rescoped Functional Requirements
 
-| Original requirement              | Final prototype outcome        | Reflection                                                                                          |
-| --------------------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------- |
-| User login                        | Implemented as demo login      | Useful for demonstrating the flow, but not secure enough for production.                            |
-| Record dive site and conditions   | Implemented                    | Core requirement met through structured fields and database saving.                                 |
-| Search community dive information | Implemented                    | Filters and cards support browsing and comparison.                                                  |
-| View local dive shops             | Implemented                    | Region-based shop cards support practical local reference.                                          |
-| User profile and contact link     | Implemented in simplified form | Supports social identity, but not a full social network.                                            |
-| Image upload                      | Rescoped                       | Replaced with image link/default image because real upload was too complex for the prototype scope. |
-| Messaging or buddy system         | Rescoped                       | Represented only through contact links; full messaging would require a much larger system.          |
-
+| Requirement                   | Final outcome          | Reflection                                                               |
+| ----------------------------- | ---------------------- | ------------------------------------------------------------------------ |
+| User login                    | Demo login implemented | Useful for demonstrating flow, but not secure enough for production.     |
+| Record dive conditions        | Implemented            | Core requirement met through structured fields and database saving.      |
+| Search dive information       | Implemented            | Filters and cards support browsing and comparison.                       |
+| View local dive shops         | Implemented            | Region-based shop cards support local reference.                         |
+| User profile and contact link | Simplified             | Supports social identity, but not a full social network.                 |
+| Image upload                  | Rescoped               | Replaced with image link/default image to keep the prototype manageable. |
+| Messaging or buddy system     | Rescoped               | Represented through contact links rather than a full messaging system.   |
