@@ -54,7 +54,6 @@ Jump to:
 * [Appendix D: Lighthouse Audit Results](#appendix-d-lighthouse-audit-results)
 * [Appendix E: Rescoped Functional Requirements](#appendix-e-rescoped-functional-requirements)
 
-The following evidence supports the reflection above. This appendix is separated from the main reflective writing and is not intended to count towards the 1250-word limit.
 
 ## Appendix A: Manual Technical Walkthrough
 
